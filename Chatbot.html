@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chatbot Javascript</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="glass">
+            <h1>Ask Your Question?</h1>
+            <h2>Yeah, ask some questions</h2>
+            <div class="input">
+                <input
+                    type="text"
+                    id="userBox"
+                    onkeydown="if(event.keyCode == 13){ talk()}"
+                    placeholder="Type your question"
+                />
+            </div>
+            <p id="chatLog">Answer appearing here</p>
+        </div>
+    </body>
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        width: 100vw;
+        height: 100vh;
+        font-family: sans-serif;
+        padding: 10em 10em;
+        background: url(https://camo.githubusercontent.com/10a3f498d105f35e3547b033f0a7bcbc06fa8c837792b50954234b37e1a039bc/68747470733a2f2f6170692e616c6578666c69706e6f74652e6465762f636f6c6f722f696d6167652f333633393346);
+        opacity: 1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-position: 100% 20%;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .glass {
+        width: 500px;
+        height: 400px;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 50px;
+        color: #fff;
+        border-radius: 9px;
+        backdrop-filter: blur(50px);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 10px 10px 10px rgba(45, 55, 68, 0.3);
+        line-height: 1.5;
+        transform: translatey(-5%);
+        transition: transform 0.5s;
+        opacity: 100%;
+        text-align: center;
+        margin: auto;
+    }
+    .glass-1 {
+        width: 500px;
+        height: 400px;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 50px;
+        color: rgb(122, 82, 82)
+        border-radius: 9px;
+        backdrop-filter: blur(50px);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 10px 10px 10px rgba(45, 55, 68, 0.3);
+        line-height: 1.5;
+        transform: translatey(-5%);
+        transition: transform 0.5s;
+        font-size: 1.7rem;
+    }
+    .glass h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .glass h2 {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+    .input {
+        width: 100%;
+        height: 70px;
+        overflow: hidden;
+        margin-top: 40px;
+    }
+    .input input {
+        width: 100%;
+        height: 70px;
+        border: none;
+        padding-left: 30px;
+        padding-top: 0;
+        outline: none;
+        font-size: 1.5rem;
+        border-radius: 20px;
+    }
+    .glass p {
+        font-size: 1.6rem;
+        margin-top: 30px;
+    }
+</style>
+
+<script>
+    function talk() {
+        var know = {
+            "Hi": "Hello, user! What may I do for you?",
+            "Hello": "Hello, user! What may I do for you?",
+            "Who are you": "Hello, I am an automated chatbot!",
+            "How are you": "Good :)",
+            "What can I do for you": "Talk to me!",
+            "Who created you": "I was created by Blueey!",
+            "Ok": "Thank you so much!",
+            "Bye": "Okay, farewell!",
+            "When were you created": "I was created on Tuesday the 8th of October 2022!",
+            "How can I help with your development": "Head over to https://www.reddit.com/r/BlueeyChatbot/ and leave your suggestion there!",
+            "Where are you from": "I was created in the North West of England!",
+            "Why were you created": "I was created as a hobby during my creators free time.",
+            "Where can I contact the creator": "Join the discord! The invite is https://discord.gg/QpQXMkdJj5",
+        };
+        var user = document.getElementById("userBox").value;
+        document.getElementById("chatLog").innerHTML = user + "<br>";
+        if (user in know) {
+            document.getElementById("chatLog").innerHTML = know[user] + "<br>";
+        } else {
+            document.getElementById("chatLog").innerHTML = 
+                "Sorry, I didn't understand <br>";
+        }
+    }
+</script>
